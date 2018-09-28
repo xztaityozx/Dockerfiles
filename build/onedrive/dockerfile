@@ -1,0 +1,10 @@
+FROM xztaityozx/base
+MAINTAINER xztaityozx
+
+RUN apt install libcurl4-openssl-dev libsqlite3-dev -y git make wget
+RUN apt install gcc -y
+RUN wget http://downloads.dlang.org/releases/2.x/2.082.0/dmd_2.082.0-0_amd64.deb
+RUN dpkg -i ./dmd_2.082.0-0_amd64.deb
+
+WORKDIR /workdir
+CMD git clone https://github.com/skilion/onedrive.git &&cd onedrive&&make
